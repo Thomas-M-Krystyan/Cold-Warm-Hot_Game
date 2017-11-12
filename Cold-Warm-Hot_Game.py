@@ -32,8 +32,8 @@ def main():
         print('I am thinking of a 3-digit number. Try to guess what it is.')
         help()
         
-	lives = 0
-	asking_for_answer = True	
+        lives = 0
+        asking_for_answer = True	
         while asking_for_answer: # difficulty loop
             decision_lives = input("\nChoose the diffuculty level:\n\n(E)asy    => 15 lives\n(M)edium  => 10 lives\n(H)ard    =>  5 lives\n\nI choose: ").lower()
             if decision_lives.lower() in ["easy", "e"]:
@@ -54,47 +54,47 @@ def main():
                 clear()
                 print("\nWrong option!")
 				
-            start = timer()
-            number_tuple = random_number()
-            chosen_number = str(number_tuple[0])+str(number_tuple[1])+str(number_tuple[2])
-            guessesList = [] # a list with the guesses
-            counter = 1
+        start = timer()
+        number_tuple = random_number()
+        chosen_number = str(number_tuple[0])+str(number_tuple[1])+str(number_tuple[2])
+        guessesList = [] # a list with the guesses
+        counter = 1
+        clear()
+        print('I have thought up a number. ', end='')
+
+        while True: # game loop
+            if bool(guessesList) == True: # printing the previous guesses to the screen
+                print('You previous guesses are {}. '.format(guessesList), end='') 
+            guess = input("\nYou have {0} guesses to get it.\nGuess #{1}: ".format(lives, counter))
+            guessesList.append(guess) #appending the guesses to the list
             clear()
-            print('I have thought up a number. ', end='')
-
-	    while True: # game loop
-                if bool(guessesList) == True: # printing the previous guesses to the screen
-                    print('You previous guesses are {}. '.format(guessesList), end='') 
-                guess = input("You have {0} guesses to get it.\nGuess #{1}: ".format(lives, counter))
-                guessesList.append(guess) #appending the guesses to the list
+            if guess.lower() in ["help", "h"]:
+                help()
+                continue
+            elif guess.lower() in ["quit", "q"]:
                 clear()
-                if guess.lower() == 'help':
-                    help()
-                    continue
-                elif guess.lower() == 'quit':
-                    clear()
-                    sys.exit()
-                    continue
-					
-                if (len(guess) < 3) or (len(guess) > 3) or not intTryParse(guess):
-                    clear()
-                    print("\nERROR: Type 3 digits!")
-                    continue
-
-                if guess == chosen_number:
-                    end = timer()
-                    print("\nYou got it in {0} seconds!".format(round((end - start), 2)))
-                    askUserIfContinue()
-
-                answers = matching(chosen_number, guess)
-                print("{} is > {} ".format(guess, ', '.join(answers)))
-                lives -= 1
+                sys.exit()
+                continue
                 
-		if lives == 0:
-                    print("\nYou lost!!")
-                    askUserIfContinue()
+            if (len(guess) < 3) or (len(guess) > 3) or not intTryParse(guess):
+                clear()
+                print("\nERROR: Type 3 digits!")
+                continue
 
-                counter += 1
+            if guess == chosen_number:
+                end = timer()
+                print("\nYou got it in {0} seconds!".format(round((end - start), 2)))
+                askUserIfContinue()
+
+            answers = matching(chosen_number, guess)
+            print("{} is > {} ".format(guess, ', '.join(answers)))
+            lives -= 1
+                
+            if lives == 0:
+                print("\nYou lost!!")
+                askUserIfContinue()
+
+            counter += 1
 				
         input("Press any key to Exit")
 				
@@ -102,7 +102,7 @@ def main():
         print(error)
 
 def askUserIfContinue():
-    decision = input("\nDo you want to play again? (yes or no): ")
+    decision = input("\nDo you want to play again?\nType (Y)es or press any key to Exit: ")
     if decision.lower() in ["yes", "y"]:
         main()
     else:
