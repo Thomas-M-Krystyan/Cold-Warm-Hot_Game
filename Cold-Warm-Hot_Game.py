@@ -1,5 +1,5 @@
 import os
-import sys # to help exit the game
+import sys
 import random
 from timeit import default_timer as timer
 
@@ -17,13 +17,13 @@ def clear(): # to clean the screen after each input
 def help(): #to display help when needed
 		clear()
 		print('''Here are some clues:
-+--------------+-------------------------------------------------+
-| When I say:  |  That means:                                    |
-+--------------+-------------------------------------------------+
-| Cold         |  No digit is correct                            |
-| Warm         |  One digit is correct but in the wrong position |
-| Hot          |  One digit is correct and in the right position |
-+--------------+-------------------------------------------------+
++--------------+------------------------------------------------+
+| When I say:  | That means:                                    |
++--------------+------------------------------------------------+
+| Cold         | No digit is correct                            |
+| Warm         | One digit is correct but in the wrong position |
+| Hot          | One digit is correct and in the right position |
++--------------+------------------------------------------------+
 Type 'help' for help and 'quit' to exit the game.''')
 
 def main():
