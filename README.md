@@ -21,9 +21,9 @@ sequence of clues matters – hot should be always before warm.
 
 |  Language  | Version | Frameworks | Version |  Paradigm  |    Category     |      Level       |         Group project          | Code freeze |
 |:----------:|:-------:|:----------:|:-------:|:----------:|:---------------:|:----------------:|:------------------------------:|:-----------:|
-|   Python   |  3.5.2  |     -      |    -    | Procedural | Game, algorithm | Pre-Intermediate | Pair-programming + contributor | 12.11.2017* |
+|   Python   |  3.5.2  |     -      |    -    | Procedural | Game, algorithm | Pre-Intermediate | Pair-programming + contributor | 10.11.2016, 12.11.2017* |
 
-\* thanks for contribution of [Muhamed Hassan](https://github.com/Muhamed0Hassan)
+\* Thanks to contribution of [Muhamed Hassan](https://github.com/Muhamed0Hassan)
 
 ---
 ### Run:
